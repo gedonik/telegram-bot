@@ -1,0 +1,88 @@
+{
+  "products": [
+    {
+      "id": 1234,
+      "image": "burger.jpg",
+      "name": "Burger",
+      "price": "4.99",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 456,
+      "image": "fries.jpg",
+      "name": "Fires",
+      "price": "1.49",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 56756,
+      "image": "hotdog.jpg",
+      "name": "Hotdog",
+      "price": "3.49",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 123624,
+      "image": "tako.jpg",
+      "name": "Tako",
+      "price": "3.99",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventoripsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 5,
+      "image": "pizza.jpg",
+      "name": "Pizza",
+      "price": "7.99",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 78,
+      "image": "donut.jpg",
+      "name": "Donut",
+      "price": "1.49",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 55,
+      "image": "popcorn.jpg",
+      "name": "Popcorn",
+      "price": "1.99",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 66,
+      "image": "cola.jpg",
+      "name": "Cola",
+      "price": "1.49",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 1233456,
+      "image": "cake.jpg",
+      "name": "Cake",
+      "price": "10.99",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 6789,
+      "image": "icecream.jpg",
+      "name": "Icecream",
+      "price": "5.99",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 90789,
+      "image": "cookie.jpg",
+      "name": "Cookie",
+      "price": "3.99",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    },
+    {
+      "id": 34589,
+      "image": "flan.jpg",
+      "name": "Flan",
+      "price": "7.99",
+      "description": "Aperiam assumenda at dicta dolorem, doloremque doloribus enim excepturi explicabo fuga in incidunt inventorepsa laborum laudantium maiores quam quas qui quo repellat repellendus sapiente totam, vitae voluptate voluptates voluptatibus."
+    }
+  ]
+}
