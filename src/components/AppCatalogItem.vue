@@ -1,36 +1,39 @@
 <template>
   <li class="product">
-    <div class="product__img-wrapper">
-      <img
-          :src=" require('../assets/icons/' + product.image) "
-          class="product__img"
-          width="70"
-          height="70"
-          alt="product">
-      <span class="product__counter" v-if="!addBtnActive">{{ productCounter }}</span>
-    </div>
+    <article>
+      <div class="product__img-wrapper">
+        <img
+            :src=" require('../assets/icons/' + product.image) "
+            class="product__img"
+            width="70"
+            height="70"
+            alt="product"
+        >
+        <span class="product__counter" v-if="!addBtnActive">{{ product.quantity }}</span>
+      </div>
 
-    <div class="product__info">
-      <span class="product__name">{{ product.name }}</span>
-      ·
-      <strong class="product__price">${{ product.price }}</strong>
-    </div>
+      <div class="product__info">
+        <span class="product__name">{{ product.name }}</span>
+        ·
+        <strong class="product__price">${{ product.price }}</strong>
+      </div>
 
 
-    <button
-        v-if="addBtnActive"
-        class="product__add"
-        type="button"
-        @click="addProduct"
-    >
-      Add
-    </button>
+      <button
+          v-if="addBtnActive"
+          class="product__add"
+          type="button"
+          @click="addToCart"
+      >
+        Add
+      </button>
 
-    <div v-else class="quantity">
-      <button class="quantity__item quantity__item--minus" type="button" @click="minusProduct">-</button>
-      <button class="quantity__item quantity__item--plus" type="button" @click="plusProduct">+</button>
-    </div>
+      <div v-else class="quantity">
+        <button class="quantity__item quantity__item--minus" type="button" @click="removeProduct">-</button>
+        <button class="quantity__item quantity__item--plus" type="button" @click="addProduct">+</button>
+      </div>
 
+    </article>
   </li>
 </template>
 
@@ -46,23 +49,22 @@ export default {
   data() {
     return {
       addBtnActive: true,
-      productCounter: 1
+      productQuantity: 1,
     }
   },
   methods: {
-    addProduct() {
+    addToCart() {
       this.addBtnActive = !this.addBtnActive;
+      this.$emit('addToCart', this.product, this.productQuantity);
     },
-    minusProduct() {
-      if (this.productCounter > 0) {
-        this.productCounter--;
-      }
-      if (this.productCounter === 0) {
+    removeProduct() {
+      this.$emit('removeProduct', this.product.id);
+      if (this.product.quantity === 0) {
         this.addBtnActive = true;
       }
     },
-    plusProduct() {
-      this.productCounter++;
+    addProduct() {
+      this.$emit('addProduct', this.product.id);
     }
   }
 }
@@ -74,6 +76,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   &__img-wrapper {
     position: relative;
@@ -84,6 +87,7 @@ export default {
     height: 70px;
     object-fit: contain;
     margin-bottom: 3px;
+    cursor: pointer;
   }
 
   &__counter {
@@ -125,10 +129,18 @@ export default {
     &__item--minus {
       margin-right: 3px;
       background-color: #e73a3a;
+      transition: background-color 0.3s ease-in-out;
+      &:hover {
+        background-color: #ef7070;
+      }
     }
 
     &__item--plus {
       background-color: #fca405;
+      transition: background-color 0.3s ease-in-out;
+      &:hover {
+        background-color: #f3b952;
+      }
     }
   }
 
