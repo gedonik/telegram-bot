@@ -5,11 +5,13 @@ import AppCart from "@/components/AppCart";
 const routes = [
     {
         path: '/',
-        component: AppCatalog
+        component: AppCatalog,
+        name: 'catalog',
     },
     {
         path: '/cart',
         component: AppCart,
+        name: 'cart',
     },
 ]
 

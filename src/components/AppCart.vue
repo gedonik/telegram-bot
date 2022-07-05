@@ -10,7 +10,7 @@
 
       <AppCartItem
           class="cart__item"
-          v-for="cartItemProduct in CART"
+          v-for="cartItemProduct in cart"
           :key="cartItemProduct.id"
           :cartItemProduct="cartItemProduct"
       />
@@ -41,7 +41,7 @@
 
 <script>
 import AppCartItem from "@/components/AppCartItem";
-import {mapGetters} from "vuex";
+import {mapState} from "vuex";
 
 export default {
   name: "AppCart",
@@ -52,20 +52,22 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'CART'
+    ...mapState([
+      'cart'
     ]),
     cartTotalCost() {
       let result = [];
 
-      if (this.CART.length) {
-        for (let product of this.CART) {
+      if (this.cart.length) {
+        for (let product of this.cart) {
           result.push(product.price.toFixed(2) * product.quantity.toFixed(2));
         }
 
         result = result.reduce(function (sum, el) {
           return sum + el;
         })
+
+        result.toFixed(2);
       }
       return result
     }

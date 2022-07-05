@@ -1,63 +1,48 @@
-import {createStore} from 'vuex'
-import axios from "axios";
+import {createStore} from 'vuex';
+import api from '@/services/api';
 
 export default createStore({
     state: {
         products: [],
         cart: [],
     },
-    getters: {
-        PRODUCTS(state) {
-            return state.products;
-        },
-        CART(state) {
-            return state.cart;
-        }
-    },
     mutations: {
-        SET_PRODUCTS_TO_STATE: (state, products) => {
+        setProducts: (state, products) => {
             state.products = products;
         },
-        SET_CART: (state, product) => {
+        addToCart: (state, product) => {
+            product.isBtnActive = false;
+            product.quantity = 1;
             state.cart.push(product);
         },
-        ADD: (state, id) => {
-            state.products.forEach(product => {
-                if (product.id === id) {
+        increaseQuantity: (state, productId) => {
+            state.cart.map(product => {
+                if (product.id === productId) {
                     product.quantity++;
+                    if (product.quantity > 0) {
+                        product.isBtnActive = false;
+                    }
                 }
             })
         },
-        REMOVE: (state, id) => {
-            state.products.forEach(product => {
-                if (product.id === id && product.quantity > 0) {
-                    product.quantity--;
+        reduceQuantity: (state, productId) => {
+            state.cart.map(product => {
+                if (product.id === productId) {
+                    if (product.quantity > 0) {
+                        product.quantity--;
+                    }
+                    if (product.quantity === 0) {
+                        product.isBtnActive = true;
+                        state.cart = state.cart.filter(product => product.id !== productId);
+                    }
                 }
             })
         }
     },
     actions: {
-        GET_PRODUCTS_FROM_API({commit}) {
-            return axios('http://localhost:3000/products', {
-                method: "GET"
-            })
-                .then((products) => {
-                    commit('SET_PRODUCTS_TO_STATE', products.data);
-                    return products;
-                })
-                .catch((error) => {
-                    console.log(error);
-                    return error;
-                })
+        async fetchProducts({commit}) {
+            const response = await api.fetchProducts();
+            commit('setProducts', response.data);
         },
-        ADD_TO_CART({commit}, product) {
-            commit('SET_CART', product);
-        },
-        ADD_PRODUCT({commit}, index) {
-            commit('ADD', index)
-        },
-        REMOVE_PRODUCT({commit}, index) {
-            commit('REMOVE', index)
-        }
     },
 })

@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: MyriadPro, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+    background-color: #3a4859;
+    border-radius: 9em;
+}
+
+::-webkit-scrollbar:hover {
+    background-color: #475565;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #797778;
+    border-radius: 9em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #9f9fa1;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

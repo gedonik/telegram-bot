@@ -1,17 +1,14 @@
 <template>
   <ul class="catalog">
     <AppCatalogItem
-        v-for="product in PRODUCTS"
+        v-for="product in products"
         :key="product.id"
         :product="product"
-        @addToCart="addToCart"
-        @addProduct="addProduct"
-        @removeProduct="removeProduct"
     />
   </ul>
 
   <footer class="footer">
-    <router-link v-if="CART.length" to="/cart" style="text-decoration: none">
+    <router-link v-if="$store.state.cart.length" to="/cart" style="text-decoration: none">
       <div class="footer__order">View order</div>
     </router-link>
     <h2 v-else class="footer__item footer__title">@DurgerKingBot</h2>
@@ -20,37 +17,27 @@
 
 <script>
 import AppCatalogItem from "@/components/AppCatalogItem";
-import {mapActions, mapGetters} from 'vuex'
+import {mapState, mapMutations, mapActions} from 'vuex';
 
 export default {
   name: "AppCatalog",
   components: {AppCatalogItem},
   computed: {
-    ...mapGetters([
-      'PRODUCTS',
-      'CART'
-    ])
+    ...mapState([
+      "products"
+    ]),
   },
   methods: {
-    ...mapActions([
-      'GET_PRODUCTS_FROM_API',
-      'ADD_TO_CART',
-      'ADD_PRODUCT',
-      'REMOVE_PRODUCT'
+    ...mapMutations([
+        'increaseQuantity',
+        'reduceQuantity'
     ]),
-    addToCart(product, quantity) {
-      product.quantity = quantity;
-      this.ADD_TO_CART(product);
-    },
-    addProduct(id) {
-      this.ADD_PRODUCT(id)
-    },
-    removeProduct(id) {
-      this.REMOVE_PRODUCT(id)
-    }
+    ...mapActions([
+      'fetchProducts'
+    ]),
   },
   mounted() {
-    this.GET_PRODUCTS_FROM_API()
+    this.fetchProducts()
   }
 }
 </script>

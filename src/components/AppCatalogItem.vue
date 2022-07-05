@@ -9,7 +9,7 @@
             height="70"
             alt="product"
         >
-        <span class="product__counter" v-if="!addBtnActive">{{ product.quantity }}</span>
+        <span class="product__counter" v-if="quantity > 0">{{ quantity }}</span>
       </div>
 
       <div class="product__info">
@@ -20,7 +20,7 @@
 
 
       <button
-          v-if="addBtnActive"
+          v-if="btnActive"
           class="product__add"
           type="button"
           @click="addToCart"
@@ -28,9 +28,9 @@
         Add
       </button>
 
-      <div v-else class="quantity">
-        <button class="quantity__item quantity__item--minus" type="button" @click="removeProduct">-</button>
-        <button class="quantity__item quantity__item--plus" type="button" @click="addProduct">+</button>
+      <div v-if="!btnActive" class="quantity">
+        <button class="quantity__item quantity__item--minus" type="button" @click="reduceQuantity">-</button>
+        <button class="quantity__item quantity__item--plus" type="button" @click="increaseQuantity">+</button>
       </div>
 
     </article>
@@ -46,25 +46,23 @@ export default {
       required: true
     },
   },
-  data() {
-    return {
-      addBtnActive: true,
-      productQuantity: 1,
-    }
+  computed: {
+    quantity() {
+      return this.$store.state.cart.find(product => product.id === this.product.id)?.quantity || null;
+    },
+    btnActive() {
+      return this.$store.state.cart.find(product => product.id === this.product.id) ? this.product.isBtnActive : true;
+    },
   },
   methods: {
     addToCart() {
-      this.addBtnActive = !this.addBtnActive;
-      this.$emit('addToCart', this.product, this.productQuantity);
+      this.$store.commit('addToCart', this.product);
     },
-    removeProduct() {
-      this.$emit('removeProduct', this.product.id);
-      if (this.product.quantity === 0) {
-        this.addBtnActive = true;
-      }
+    reduceQuantity() {
+      this.$store.commit('reduceQuantity', this.product.id);
     },
-    addProduct() {
-      this.$emit('addProduct', this.product.id);
+    increaseQuantity() {
+      this.$store.commit('increaseQuantity', this.product.id);
     }
   }
 }
@@ -87,7 +85,6 @@ export default {
     height: 70px;
     object-fit: contain;
     margin-bottom: 3px;
-    cursor: pointer;
   }
 
   &__counter {
@@ -130,6 +127,7 @@ export default {
       margin-right: 3px;
       background-color: #e73a3a;
       transition: background-color 0.3s ease-in-out;
+
       &:hover {
         background-color: #ef7070;
       }
@@ -138,6 +136,7 @@ export default {
     &__item--plus {
       background-color: #fca405;
       transition: background-color 0.3s ease-in-out;
+
       &:hover {
         background-color: #f3b952;
       }
