@@ -1,29 +1,24 @@
-# telegram-bot
 
-## Project setup
-```
-npm install
-```
+# Telefram-bot is a Vue application.
 
-## json-server
-```
-json-server --watch db.json
-```
+Frontend Vue app for customer.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
+## Installation
+
+Clone my project, after type in terminal:
+
+```bash
+  npm install 
+  json-server db.json
+  npm run serve
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Tech Stack
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+HTML, CSS, SCSS, Vue, Vue-router, Vuex, Axios, Json-server.
+
+## Screenshots
+
+![App Screenshot](https://i.postimg.cc/zvLZzgHS/telegram-bot1.jpg)
+![App Screenshot](https://i.postimg.cc/vBxwMnV7/telegram-bot2.jpg)
