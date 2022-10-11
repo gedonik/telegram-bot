@@ -1,8 +1,7 @@
 
-# Telefram-bot is a Vue application.
+# Telegram-bot is a Vue application.
 
 Frontend Vue app for customer.
-
 
 ## Installation
 
@@ -18,7 +17,10 @@ Clone my project, after type in terminal:
 
 HTML, CSS, SCSS, Vue, Vue-router, Vuex, Axios, Json-server.
 
+## Demo
+
+https://gedonik.club/telegram-bot/
+
 ## Screenshots
 
-![App Screenshot](https://i.postimg.cc/zvLZzgHS/telegram-bot1.jpg)
-![App Screenshot](https://i.postimg.cc/vBxwMnV7/telegram-bot2.jpg)
+![App Screenshot](https://i.postimg.cc/8k0RY6pk/telegram-bot.jpg)
