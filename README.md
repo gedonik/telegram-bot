@@ -17,10 +17,6 @@ Clone my project, after type in terminal:
 
 HTML, CSS, SCSS, Vue, Vue-router, Vuex, Axios, Json-server.
 
-## Demo
-
-https://gedonik.club/telegram-bot/
-
 ## Screenshots
 
 ![App Screenshot](https://i.postimg.cc/8k0RY6pk/telegram-bot.jpg)
